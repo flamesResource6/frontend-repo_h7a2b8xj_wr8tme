@@ -1,6 +1,7 @@
 import React from 'react'
 import Spline from '@splinetool/react-spline'
-import { Whatsapp } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
+import ErrorBoundary from './ErrorBoundary'
 
 export default function Hero3D() {
   return (
@@ -22,17 +23,19 @@ export default function Hero3D() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full transition-colors"
               >
-                <Whatsapp className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5" />
                 ¡Cotiza por WhatsApp Ya!
               </a>
             </div>
           </div>
 
           <div className="relative h-[360px] sm:h-[420px] lg:h-[480px] rounded-2xl shadow-xl ring-1 ring-black/5 bg-gradient-to-br from-slate-50 to-slate-100">
-            <Spline
-              scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
-              style={{ width: '100%', height: '100%' }}
-            />
+            <ErrorBoundary>
+              <Spline
+                scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
+                style={{ width: '100%', height: '100%' }}
+              />
+            </ErrorBoundary>
             <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-white/0 via-white/0 to-white/10" />
           </div>
         </div>
